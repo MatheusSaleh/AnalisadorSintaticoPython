@@ -1,0 +1,3 @@
+patrulha (sgt_soldado ?? 10) {
+    relate "Rodando...";
+}

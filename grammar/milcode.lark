@@ -1,0 +1,58 @@
+?start: comando+
+
+?comando: declaracao
+        | atribuicao
+        | entrada
+        | saida
+        | condicional
+        | repeticao_while
+        | repeticao_for
+
+// Declaração de variáveis
+declaracao: IDENT ":" TIPO ";"
+
+// Atribuição
+atribuicao: IDENT ">>" expressao ";"
+
+// Entrada e saída
+entrada: "receba" IDENT ";"
+saida: "relate" (STRING | IDENT) ";"
+
+// Estruturas condicionais
+condicional: "ordem_se" "(" expressao_logica ")" bloco ("contramarcha" bloco)?
+
+// Estruturas de repetição
+repeticao_while: "patrulha" "(" expressao_logica ")" bloco
+repeticao_for: "missao" "(" inicializacao ";" expressao_logica ";" atribuicao ")" bloco
+
+// Blocos de código
+bloco: "{" comando* "}"
+
+// Expressões
+?expressao: termo
+          | expressao "+" termo -> soma
+          | expressao "-" termo -> sub
+
+?termo: fator
+      | termo "*" fator -> mult
+      | termo "/" fator -> div
+
+?fator: IDENT
+       | NUMBER
+       | "(" expressao ")"
+
+// Expressões lógicas
+?expressao_logica: IDENT OPERADOR_LOGICO (NUMBER | IDENT)
+
+// Inicialização do for
+inicializacao: IDENT ":" TIPO ">>" NUMBER
+
+// Tokens
+IDENT: /(sgt|cap|gen)_[a-zA-Z0-9_]*/
+TIPO: "inf" | "art" | "comandante" | "ordem"
+OPERADOR_LOGICO: "!!" | "??" | "#=" | "##"
+NUMBER: /\d+(\.\d+)?/
+STRING: /".*?"/
+
+%import common.WS
+%ignore WS
