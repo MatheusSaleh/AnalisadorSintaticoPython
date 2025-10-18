@@ -1,0 +1,3 @@
+ordem_se (sgt_soldado !! 50 {
+    relate "Erro de sintaxe!";
+}

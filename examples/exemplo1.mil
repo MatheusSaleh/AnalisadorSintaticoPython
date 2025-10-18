@@ -1,8 +1,4 @@
 sgt_soldado: inf;
 sgt_soldado >> 10;
 relate "Quantidade de soldados:";
-ordem_se (sgt_soldado !! 50) {
-    relate "Tropa Reforçada";
-} contramarcha {
-    relate "Precisa de reforços";
-}
+relate sgt_soldado;

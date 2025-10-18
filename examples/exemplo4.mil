@@ -1,0 +1,4 @@
+missao (sgt_i: inf >> 1; sgt_i !! 5; sgt_i >> sgt_i + 1) {
+    relate "Executando missão número:";
+    relate sgt_i;
+}

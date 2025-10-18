@@ -1,3 +1,8 @@
-patrulha (sgt_soldado ?? 10) {
-    relate "Rodando...";
+sgt_soldado: inf;
+sgt_soldado >> 40;
+
+ordem_se (sgt_soldado !! 50) {
+    relate "Tropa Reforçada!";
+} contramarcha {
+    relate "A tropa ainda precisa de reforços.";
 }

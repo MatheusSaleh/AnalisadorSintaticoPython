@@ -1,0 +1,8 @@
+sgt_contador: inf;
+sgt_contador >> 1;
+
+patrulha (sgt_contador ?? 5) {
+    relate "Soldado número:";
+    relate sgt_contador;
+    sgt_contador >> sgt_contador + 1;
+}

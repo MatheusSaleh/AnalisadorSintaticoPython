@@ -1,0 +1,10 @@
+sgt_valor: inf;
+
+relate "Digite um valor:";
+receba sgt_valor;
+
+ordem_se (sgt_valor #= 10) {
+    relate "Valor igual a 10!";
+} contramarcha {
+    relate "Valor diferente de 10!";
+}
